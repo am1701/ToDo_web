@@ -3,6 +3,8 @@
 	font-weight: normal;
 	font-size: 13px;
 }
+
+
 .navbar {
 	background: #fff;
 	padding-left: 16px;
@@ -10,6 +12,8 @@
 	border-bottom: 1px solid #dfe3e8;
 	border-radius: 0;
 }
+
+
 .nav-link img {
 	border-radius: 50%;
 	width: 36px;
@@ -23,14 +27,15 @@
 	font-size: 20px;
 	padding-right: 50px;
 }
+
 .navbar .navbar-brand b {
-	color: #33cabb;
+	color: rgb(176, 106, 252);
 }
 .navbar .form-inline {
 	display: inline-block;
 }
 .navbar a {
-	color: #888;
+
 	font-size: 15px;
 }
 .search-box {

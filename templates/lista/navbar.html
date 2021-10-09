@@ -1,23 +1,23 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a href="{% url 'lista:index' %}" class="navbar-brand">Brand<b>Name</b></a>
+	<a href="{% url 'lista:index' %}" class="navbar-brand">Brand<b class='brand'>Name</b></a>
 	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
-			<a href="{% url 'lista:index' %}" class="nav-item nav-link">Home</a>
-			<a href="#" class="nav-item nav-link">About</a>
 
-			<a href="{% url 'lista:nova-tarefa' %}" class="nav-item nav-link active">Novo</a>
-			<a href="#" class="nav-item nav-link">Blog</a>
-			<a href="#" class="nav-item nav-link">Contact</a>
+			<a href="#" class="nav-item nav-link">Sobre</a>
+
+
+			<a href="#" class="nav-item nav-link">Contato</a>
 		</div>
 		{% if user.is_authenticated %}
 <ul class="navbar-nav w-100">
+	<a href="{% url 'lista:nova-tarefa' %}" id='pulse' class="nav-item nav-link active pulse">Nova tarefa</a>
 		<li class="nav-item dropdown ml-auto">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class='boas_vindas'></span>{{user.first_name}} </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class='boas_vindas'></span>{% if user.first_name %}{{user.first_name}}{% else %}{{user.email}}{% endif %}</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
@@ -48,7 +48,7 @@
 
 {% block js %}
 <script>
-	
+
 // Prevent dropdown menu from closing when click inside the form
 $(document).on("click", ".action-buttons .dropdown-menu", function(e){
 	e.stopPropagation();
