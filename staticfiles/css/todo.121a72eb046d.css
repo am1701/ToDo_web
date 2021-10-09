@@ -1,0 +1,128 @@
+.root{
+  display: flex;
+  margin: 0 auto;
+  margin-top: 80px;
+  max-width: 900px;
+}
+
+.add-task {
+  position: relative;
+  background-color: #03071e;
+  border-radius: 8px;
+  border:2px solid #343a40;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  padding-left:40px;
+  width: 100%;
+
+}
+.caixa {
+  margin-top: 50px;
+  border: none;
+  border-top: 5px solid #10002b;
+  background: #3d405b;
+  color: #57557A;
+  max-width: 100%;
+}
+.add-task:focus {
+  background-color: #03071e;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid #48bfe3;
+  color: #fff;
+}
+
+
+.btn-add {
+  border-radius: 23%;
+  position: absolute;
+  background-color: #48bfe3;
+  border: none;
+  cursor: pointer;
+  margin: 6px;
+  font-weight: 600;
+  height: 34px;
+  width: 27px;
+
+}
+
+.btn-add:hover {
+  background-color: #48bfe8;
+}
+
+.btn-add:active {
+    background-color: #48bfe8;
+}
+
+
+.true {
+    padding: 12px;
+    background-color: #10002b;
+    border-radius: 7px;
+    max-width: 840px;
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    text-decoration: line-through;
+    color: #fff;
+}
+
+.true:hover {
+  box-shadow: 1px 2px 5px #10002b;
+  text-decoration: none;
+}
+
+.icon {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  color: #a8dadc;
+
+}
+
+.icon:hover {
+  color: #219ebc;
+}
+
+
+.false {
+    padding: 12px;
+    background-color: #03071e;
+    border-radius: 7px;
+    max-width: 840px;
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    color: #fff;
+}
+
+.false:hover {
+  box-shadow: 1px 2px 5px #03071e;
+}
+
+.data_hora {
+  font-size: 12px;
+  position: absolute;
+  margin: 10px 10px 0 625px;
+  color: #240046
+}
+
+
+
+.fundo {
+  height: 100%;
+  padding: 0 0 30px 0;
+}
+
+
+#datetimepicker {
+    max-width: 182px;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 16px;
+}
