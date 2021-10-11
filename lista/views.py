@@ -3,11 +3,12 @@ from .models import Lista
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
-
+from .utils import send_email
 
 import json
 
 def index(request):
+    
     template_name = 'lista/index.html'
     contexto = {}
 
