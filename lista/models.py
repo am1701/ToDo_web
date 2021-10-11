@@ -27,7 +27,7 @@ class Lista(models.Model):
 def novo_usuario(sender, instance, created, **kwargs):
     if created:
         msg = 'Um novo Usuário foi cadastrado! Verifique no admin do sistema'
-        send_email('Novo usuário Cadastrado', 'djangosimples@gmail.com',msg )
+        send_email('Novo usuário Cadastrado',msg )
 
 
 post_save.connect(novo_usuario, sender=settings.AUTH_USER_MODEL)
