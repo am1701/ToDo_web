@@ -1,31 +1,41 @@
-$(document).ready(function(){
+
+
+import {djangoAjax} from "./ajax_django.js";
+
+djangoAjax();
+
+
+
+
 
 $(".new-btn").on('click', function(){
 
   var texto = $('.add-task').val();
-  var data_item = $('#datetimepicker').val();
+
+
+
 
   let url = "/nova-tarefa/"
 
-  if (texto === '' || data_item === '' ){
-    alert('Digite o item e data')
+  if (texto === '' ){
+    alertify.set('notifier','position', 'top-center');
+    alertify.error('Digite o texto');
+
+
   } else {
-
-
     $.ajax({
       url : url,
       method : "POST",
-      data : JSON.stringify({texto: texto, data_item:data_item}),
+      data : JSON.stringify({texto: texto}),
       success : function(data){
         if(data.ok_add){
           $('.add-task').val("");
-          $('#datetimepicker').val("")
-          console.log(data_item);
+
           var add_dados = `
             <div class="false">
               <div class="id_item" style='display:none;'>${data.iditem}</div>
               <div class="texto"><i class="far fa-circle no-checked mr-2"></i> ${data.msg} <i class="fas fa-trash-alt icon"></i></div>
-              <span class="data_hora">${data.data} - ${data.hora}</span>
+
             </div>
             `
           $(".fundo").append(add_dados);
@@ -76,7 +86,7 @@ var deletar_item = function(id, item){
     success : function (data){
       if (data.deleted){
           $(item).remove();
-          
+
       }
     },
     error : function(xhr) {
@@ -93,7 +103,7 @@ $(document).on('click','.true',  function (e){
   var id_item = $(this).children('.id_item').text()
   var item = $(this)
 
-  if(xPosition>01 && xPosition<1050){
+  if( xPosition > 1 && xPosition < 1050){
     confirmar_item(id_item, item);
   } else {
     deletar_item(id_item, item)
@@ -104,10 +114,11 @@ $(document).on('click','.true',  function (e){
 $(document).on('click', '.false', function (e){
 
   var xPosition=e.pageX;
+  console.log(xPosition)
   var id_item = $(this).children('.id_item').text()
   var item = $(this)
 
-  if(xPosition>01 && xPosition<1050){
+  if(xPosition > 1 && xPosition < 1050){
     confirmar_item(id_item, item);
   } else {
     deletar_item(id_item, item)
@@ -118,6 +129,7 @@ $(document).on('click', '.false', function (e){
 $('.add-task').keypress(function(event){
   if(event.keyCode === 13){
     $(".new-btn").click();
+
   }
 })
 
@@ -130,7 +142,9 @@ $(document).keydown(function(event){
     $(".id_item").css('display', 'block');
   }else if (event.keyCode === 78 && !input.is(':focus')){
     $('.add-task').focus();
+
   }
+
 })
 
 /*document.addEventListener("keydown", function(event) {
@@ -143,33 +157,3 @@ $(document).keydown(function(event){
     }
 
 })*/
-//ajax django
-var getCookie = function (name) {
-  var cookieValue = null;
-  if (document.cookie && document.cookie != '') {
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-      var cookie = jQuery.trim(cookies[i]);
-      if (cookie.substring(0, name.length + 1) == (name + '=')) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
-  }
-  return cookieValue;
-}
-
-var csrfSafeMethod = function (method) {
-  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-
-$.ajaxSetup({
-  beforeSend: function(xhr, settings) {
-    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-      xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
-    }
-  }
-});
-
-
-})

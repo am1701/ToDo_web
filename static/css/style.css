@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 body {
-  
-  font-family: 'Varela Round', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", sans-serif;
   background-color: #19123B;
   color: #fff;
+}
+
+
+.main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+
 }

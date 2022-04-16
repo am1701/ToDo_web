@@ -12,7 +12,19 @@
     <link rel='stylesheet' href="{% static 'css/navbar.css' %}">
     <link rel='stylesheet' href="{% static 'css/todo.css' %}">
     <link rel='stylesheet' href="{% static 'css/login.css' %}">
-    <link rel='stylesheet' href="{% static 'css/jquery.datetimepicker.css' %}">
+    <link rel='stylesheet' href="{% static 'css/new_senha.css' %}">
+
+      <!-- CSS AlertiFy-->
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <!-- Default theme -->
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
     <style>
@@ -28,7 +40,7 @@
 
 
 
-    <div class="container">
+    <div class="container main">
       {% block messages %}
       {% endblock %}
 
@@ -44,9 +56,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
 
-    <script src="{% static 'js/web.js' %}"></script>
+    <!--ArletiFy -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- Fim AlertiFy -->
+
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/jquery.datetimepicker.full.js' %}"></script>
+
 
     {% block js %}
 

@@ -29,21 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #Extras
-    'django.contrib.sites', # new
-    'allauth', # new
-    'allauth.account', # new
-    'allauth.socialaccount', # new
-    'allauth.socialaccount.providers.github', # new
-
-    'allauth.socialaccount.providers.google',
-
-    'allauth.socialaccount.providers.facebook',
+    'widget_tweaks',
 
 
-     "crispy_forms",
     #my apps
     'lista',
+    'accounts',
 
 ]
 
@@ -109,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
+    #"allauth.account.auth_backends.AuthenticationBackend",
 )
 
 # Internationalization
@@ -145,34 +136,7 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'store/images')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = "lista.User"
-
-
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-#configurações Django allauth
-
-# Só precisa digitar a senha uma vez
-#ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
-
-ACCOUNT_SESSION_REMEMBER = True
-# Não precisa de username
-ACCOUNT_USERNAME_REQUIRED = False
-# Método de autenticação: email
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-# Email obrigatório
-ACCOUNT_EMAIL_REQUIRED = True
-# Email único
-ACCOUNT_UNIQUE_EMAIL = True
-
-ACCOUNT_LOGOUT_ON_GET = True
-
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-
-
-SITE_ID = 1
-
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+AUTH_USER_MODEL = "accounts.User"
 
 LOGIN_REDIRECT_URL = '/nova-tarefa/'
 LOGOUT_REDIRECT_URL = '/'
@@ -180,25 +144,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
-
-
 django_heroku.settings(locals())
 
-
+#Envio de email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtppro.zoho.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')

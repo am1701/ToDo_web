@@ -8,11 +8,13 @@ from .utils import send_email
 import json
 
 def index(request):
-    
+
     template_name = 'lista/index.html'
     contexto = {}
 
     return render (request, template_name, contexto)
+
+
 
 @login_required
 def new_tarefa(request):
@@ -21,17 +23,16 @@ def new_tarefa(request):
     if request.method == 'POST' and request.is_ajax():
         items = json.load(request)
         msg = items['texto']
-        data, hora =  items['data_item'].split(' ')
-        data = datetime.strptime(data, "%d/%m/%Y").strftime("%Y-%m-%d")
-        iditem = Lista.objects.create(usuario=request.user, item=msg, data=data, hora=hora).id
+        iditem = Lista.objects.create(item=msg, usuario=request.user).id
 
-        data = {'msg':msg, 'ok_add': True, 'iditem':iditem, 'data':data, 'hora':hora}
+        data = {'msg':msg, 'ok_add': True, 'iditem':iditem}
         return JsonResponse(data)
 
     tarefas = Lista.objects.filter(usuario=request.user)
 
 
     contexto = {'tarefas':tarefas}
+    
 
     return render (request, template_name, contexto)
 

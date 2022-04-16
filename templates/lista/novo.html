@@ -5,11 +5,12 @@
 {% block content %}
 
 <div class="caixa">
+
 <div class="root">
 
   <input type="text" class="form-control add-task" placeholder="adicionar nova tarefa">
   <!--<button tipe='submit' class='btn-add'>+</button>-->
-  <input id="datetimepicker" type="text" class="form-control datetimepicker" placeholder="Escolha a data">
+
   <div><button tipe='submit' class='btn btn-success new-btn ml-3'>+</button></div>
 
 </div>
@@ -24,9 +25,9 @@
     <div class="true">
     <div class="id_item" style='display:none;'>{{tarefa.id}}</div>
     <div class="texto"><i class="fas fa-check-circle checked mr-2"></i> {{tarefa.item}} </div>  <i class="fas fa-trash-alt icon"></i>
-      <span class="data_hora">{{tarefa.data}} - {{tarefa.hora}}</span>
-    </div>
-  
+      </div>
+
+
 
   {% else %}
 
@@ -34,7 +35,6 @@
     <div class="false">
       <div class="id_item" style='display:none;'>{{tarefa.id}}</div>
       <div class="texto"><i class="far fa-circle no-checked mr-2"></i> {{tarefa.item}} </div><i class="fas fa-trash-alt icon"></i>
-    <span class="data_hora">{{tarefa.data}} - {{tarefa.hora}}</span>
       </div>
 
 
@@ -48,20 +48,8 @@
 {% endblock %}
 
 
-
 {% block js %}
 
-<script>
-
-
-$.datetimepicker.setLocale('pt-BR');
-$('#datetimepicker').datetimepicker({
-  format:'d/m/Y H:i',
-  minDate:'-1970/01/01',
-
-
-});
-
-</script>
+<script src="{% static 'js/web.js' %}" type="module"></script>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-  
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a href="{% url 'lista:index' %}" class="navbar-brand">Brand<b class='brand'>Name</b></a>
 	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -22,7 +22,7 @@
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
 										<hr>
-                    <a class="dropdown-item" href="{% url 'account_logout' %}">Sair</a>
+                    <a class="dropdown-item" href="{% url 'accounts:logout' %}">Sair</a>
                 </div>
             </li>
 </ul>
@@ -31,29 +31,16 @@
 
 		<div class="navbar-nav ml-auto action-buttons">
 			<div class="nav-item dropdown">
-				<a href="{% url 'account_login' %}"">Login</a>
+				<a href="{% url 'accounts:login' %}"">Login</a>
           </div>
 			</div>
 
 
 			<div class="nav-item dropdown">
-				<a href="{% url 'account_signup' %}"class="btn btn-primary sign-up-btn">Cadastro</a>
+				<a href="{% url 'accounts:cadastro' %}"class="btn btn-primary sign-up-btn">Cadastro</a>
 
 
         </div>
         {% endif %}
 	</div>
 </nav>
-
-
-{% block js %}
-<script>
-
-// Prevent dropdown menu from closing when click inside the form
-$(document).on("click", ".action-buttons .dropdown-menu", function(e){
-	e.stopPropagation();
-});
-
-
-</script>
-{% endblock %}

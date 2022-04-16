@@ -1,8 +1,8 @@
 .root{
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
   margin-top: 80px;
-  max-width: 900px;
+
 }
 
 .add-task {
@@ -14,7 +14,7 @@
   color: #fff;
   font-weight: 600;
   padding-left:40px;
-  width: 100%;
+  width: 85%;
 
 }
 .caixa {
@@ -23,7 +23,7 @@
   border-top: 5px solid #10002b;
   background: #3d405b;
   color: #57557A;
-  max-width: 100%;
+  width: 100%;
 }
 .add-task:focus {
   background-color: #03071e;
@@ -60,7 +60,7 @@
     padding: 12px;
     background-color: #10002b;
     border-radius: 7px;
-    max-width: 840px;
+    width: 90%;
     margin: 0 auto;
     margin-top: 20px;
     cursor: pointer;
@@ -73,6 +73,7 @@
 .true:hover {
   box-shadow: 1px 2px 5px #10002b;
   text-decoration: none;
+
 }
 
 .icon {
@@ -92,7 +93,7 @@
     padding: 12px;
     background-color: #03071e;
     border-radius: 7px;
-    max-width: 840px;
+    width: 90%;
     margin: 0 auto;
     margin-top: 20px;
     cursor: pointer;
@@ -105,24 +106,25 @@
   box-shadow: 1px 2px 5px #03071e;
 }
 
-.data_hora {
-  font-size: 12px;
-  position: absolute;
-  margin: 10px 10px 0 625px;
-  color: #240046
-}
-
-
-
 .fundo {
   height: 100%;
   padding: 0 0 30px 0;
 }
 
 
-#datetimepicker {
-    max-width: 182px;
-    margin-left: 10px;
-    color: #fff;
-    font-size: 16px;
+@media screen and (max-width: 667px ) {
+
+
+    .caixa {
+    height: 80vh;
+    }
+
+    .root {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .new-btn {
+      display: none;
+    }
 }

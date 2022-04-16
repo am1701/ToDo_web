@@ -1,0 +1,31 @@
+{% extends 'lista/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Nova Senha {% endblock %}
+
+{% block content %}
+
+<div class="main-login">
+
+
+    <form method="post" id="form-login">
+      {% csrf_token %}
+    <div class="rigth-login">
+        <div class="card-login new-senha">
+            <h1>Esqueceu a senha?</h1>
+
+            <div class="text-field">
+                <label for="usuario">Email</label>
+                {% for field in form.visible_fields %}
+                <!--<input class="input" id="email" type="email" name="email" autocomplete="email" placeholder="Digite seu email e enviaremos instruções para você criar sua senha.">-->
+                  {% render_field field class="input" placeholder="Digite seu email e enviaremos instruções para você criar sua senha." %}
+                {% endfor %}
+            </div>
+
+           <button type=submit class="btn-btn btn-login">Enviar</button>
+        </div>
+          </form>
+    </div>
+
+
+{% endblock %}

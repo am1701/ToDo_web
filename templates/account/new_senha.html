@@ -1,0 +1,33 @@
+{% extends 'lista/base.html' %}
+{% load static %}
+{% block title %}Nova Senha {% endblock %}
+
+{% block content %}
+
+<div class="main-login">
+
+
+    <form method="post" id="form-login">
+      {% csrf_token %}
+    <div class="rigth-login">
+        <div class="card-login new-senha">
+            <h1>Nova senha</h1>
+
+            <div class="text-field">
+                <label for="senha">Senha</label>
+                <input class="input" id="pass" type="password"  autocomplete="current-password" name="senha" placeholder="Senha">
+
+            </div>
+            <div class="text-field">
+                <label for="senha">Confirme a Senha</label>
+                <input class="input" id="pass" type="password"  autocomplete="current-password" name="senha" placeholder="Senha">
+
+            </div>
+
+           <button class="btn-btn btn-login">Salvar</button>
+        </div>
+          </form>
+    </div>
+
+
+{% endblock %}
